@@ -1,8 +1,9 @@
 Improvements for Python projects
 ================================
 
-This is a list of common improvements for your Python code. These are not
-necessarily mistakes but they can improve the quality of your code.
+This is a list of common improvements for your Python code.
+
+These are not necessarily mistakes but they can improve the quality of your code.
 
 ---
 
