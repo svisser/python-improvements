@@ -14,6 +14,12 @@ use the tuple `sys.version_info`. For example: `sys.version_info[0] > 3`. As of
 Python 2.7 you can also access the numbers using names, such as `sys.version_info.major`
 for the major Python version (i.e., `sys.version_info[0]` is the same as `sys.version_info.major`).
 
+**Using sys.version for platform checks**:
+Similarly, the string `sys.version` also should not be used for determining
+the name of the platform (e.g., `'PyPy' in sys.verion`). Python has a module
+called `platform` that should be used to learn the interpreter (CPython, PyPy, ...)
+or the operating system that the code is running on.
+
 **Ignoring potential future Python versions**:
 As part of porting a codebase from Python 2 to a Python 2/3 compatible codebase
 some people forget that there most likely will be a Python 4. This means checking
