@@ -60,7 +60,7 @@ iterate over it and that have a length (size).
 If an object that provides this functionality is "good
 enough" for your code then you don't need to check that `type(d) is dict` or
 `if isinstance(d, dict)`, you can broaden the check to be
-`if isinstance(d, collections.Mapping)`. This if statement will be `True`
+`if isinstance(d, collections.Mapping)`. This if statement will be true
 for dictionaries, subclasses of dictionaries as well as objects such as
-'collections.Counter', `collections.OrderedDict` and `collections.defaultdict`
+`collections.Counter`, `collections.OrderedDict` and `collections.defaultdict`
 from Python's standard library.
