@@ -47,13 +47,17 @@ including all the types that you wish to check for. For example, if you write
 `if type(d) is dict` then you're only checking that `d` is a dictionary object
 but not whether `d` is a subclass of `dict`. In this case it's better to use
 `if isinstance(d, dict)` to check whether `d` is a dictionary or a subclass
-of a dictionary. But even this may be too restrictive: you may wish to check
+of a dictionary.
+
+But even this may be too restrictive: you may wish to check
 whether a "dictionary-like" object was passed, not necessarily a true dictionary
 or subclass of `dict`. Python provides various so-called "abstract base classes"
 that someone can use as base class for their classes. For example, the abstract
 base class `collections.Mapping` (from the `collections` module) only enforces
 that you can "get items" from that object, that you can iterate over it and that
-it has a length (size). If any object that provides this functionality is "good
+it has a length (size).
+
+If any object that provides this functionality is "good
 enough" for your code then you don't need to check that `type(d) is dict` or
 `if isinstance(d, dict)`, you can broaden the check to be
 `if isinstance(d, collections.Mapping)`. This if statement will be `True`
