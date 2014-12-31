@@ -50,14 +50,14 @@ but not whether `d` is a subclass of `dict`. In this case it's better to use
 of a dictionary.
 
 But even this may be too restrictive: you may wish to check
-whether a "dictionary-like" object was passed, not necessarily a true dictionary
+whether a "dictionary-like" object was provided, not necessarily a dictionary
 or subclass of `dict`. Python provides various so-called "abstract base classes"
 that someone can use as base class for their classes. For example, the abstract
-base class `collections.Mapping` (from the `collections` module) only enforces
-that you can "get a value for a given key" from that object, that you can
-iterate over it and that it has a length (size).
+base class `collections.Mapping` (from the `collections` module) is for objects
+from which you can "get a value for a given key", that you can
+iterate over it and that have a length (size).
 
-If any object that provides this functionality is "good
+If an object that provides this functionality is "good
 enough" for your code then you don't need to check that `type(d) is dict` or
 `if isinstance(d, dict)`, you can broaden the check to be
 `if isinstance(d, collections.Mapping)`. This if statement will be `True`
