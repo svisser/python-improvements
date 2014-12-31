@@ -54,8 +54,8 @@ whether a "dictionary-like" object was passed, not necessarily a true dictionary
 or subclass of `dict`. Python provides various so-called "abstract base classes"
 that someone can use as base class for their classes. For example, the abstract
 base class `collections.Mapping` (from the `collections` module) only enforces
-that you can "get items" from that object, that you can iterate over it and that
-it has a length (size).
+that you can "get a value for a given key" from that object, that you can
+iterate over it and that it has a length (size).
 
 If any object that provides this functionality is "good
 enough" for your code then you don't need to check that `type(d) is dict` or
