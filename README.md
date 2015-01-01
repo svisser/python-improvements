@@ -87,7 +87,10 @@ be able to access these values. For example:
 Even though the function is decorated, the values of `f.__name__` and `f.__doc__`
 should still be the same as before. Whether or not this is the case depends on
 the implementation of `my_decorator`. So a decorator that you've written needs
-to preserve these details by returning a function that has the same values.
-This also matches the intent of a decorator: a decorator is aimed at modifying
-the behaviour of the function but it's still the "same" function for most intents
-and purposes (i.e., with the same name and docstring).
+to preserve these details (most often by returning a new function that has the
+same values). This also matches the intent of a decorator: a decorator is aimed
+at modifying the behaviour of the function but it's still the "same" function
+for most intents and purposes (i.e., with the same name and docstring). If you're
+using a decorator to pass default values to the function, it may be better to
+use `functools.partial` which doesn't have the same expectation to return
+the "same" function.
