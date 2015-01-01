@@ -64,3 +64,30 @@ enough" for your code then you don't need to check that `type(d) is dict` or
 for dictionaries, subclasses of dictionaries as well as objects such as
 `collections.Counter`, `collections.OrderedDict` and `collections.defaultdict`
 from Python's standard library.
+
+**Decorating a function without preserving details**:
+If you've used a decorator to change the behaviour of a function, it's possible
+that you're not preserving the details of the original function, such as its
+name or its docstring. For example:
+
+    def f():
+        """Documentation here"""
+        return 3
+
+You can now access the function name by looking at `f.__name__` and you can
+access the docstring by looking at `f.__doc__`. If you're now applying a decorator
+that returns a new function but without copying over these attributes, you won't
+be able to access these values. For example:
+
+    @my_decorator
+    def f():
+        """Documentation"
+        return 3
+
+Even though the function is decorated, the values of `f.__name__` and `f.__doc__`
+should still be the same as before. Whether or not this is the case depends on
+the implementation of `my_decorator`. So a decorator that you've written needs
+to preserve these details by returning a function that has the same values.
+This also matches the intent of a decorator: a decorator is aimed at modifying
+the behaviour of the function but it's still the "same" function for most intents
+and purposes (i.e., with the same name and docstring).
