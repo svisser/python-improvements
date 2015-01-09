@@ -90,7 +90,7 @@ the implementation of `my_decorator`. So a decorator that you've written needs
 to preserve these details (most often by returning a new function that has the
 same values). You can do this by using `functools.wraps` which
 allows you to indicate that one function wraps the other function and that
-it should therefore preserve the relevant details.
+the relevant details should be preserved.
 
 This also matches the intent of a decorator: a decorator is aimed
 at modifying the behaviour of the function but it's still the "same" function
