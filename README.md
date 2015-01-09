@@ -88,7 +88,11 @@ Even though the function is decorated, the values of `f.__name__` and `f.__doc__
 should still be the same as before. Whether or not this is the case depends on
 the implementation of `my_decorator`. So a decorator that you've written needs
 to preserve these details (most often by returning a new function that has the
-same values). This also matches the intent of a decorator: a decorator is aimed
+same values). You can fix the above issue by using `functools.wraps` which
+allows you to indicate that one function wraps the other function and that
+it should therefore preserve the relevant details.
+
+This also matches the intent of a decorator: a decorator is aimed
 at modifying the behaviour of the function but it's still the "same" function
 for most intents and purposes (i.e., with the same name and docstring). If you're
 using a decorator to pass default values to the function, it may be better to
