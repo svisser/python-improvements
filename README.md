@@ -33,7 +33,7 @@ further changes the Python 3 code would apply.
 
 **Opening files without closing them**:
 When you `open()` a file you also need to ensure the file is closed by calling
-`close()` on the file object. This means the system resources are released and
+`close()` on the file object. This means system resources are released and
 that any remaining writes are indeed written to the file. For example:
 
     f = open(...)
