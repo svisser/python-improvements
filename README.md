@@ -31,6 +31,24 @@ be `if sys.version_info[0] >= 3: ... else: ...`. If Python 4 does introduce
 any specific changes then things can be changed at that time - but without
 further changes the Python 3 code would apply.
 
+**Opening files without closing them**:
+When you `open()` a file you also need to ensure the file is closed by calling
+`close()` on the file object. This means the system resources are released and
+that any remaining writes are indeed written to the file. For example:
+
+    f = open(...)
+    # use f here
+    f.close()
+
+In Python 2.6+ you can open a file by using the with statement:
+
+    with open(...) as f:
+        # use f here
+
+This will call `f.close()` automatically as soon as execution leaves the with block.
+In many cases this approach is preferred over calling `f.close()` yourself as
+this also ensures the file is closed when exceptions occur.
+
 **Ensure file handles are closed in setup.py**:
 In `setup.py` you may wish to read the contents of other files, such as
 the README or CHANGELOG, and pass them to `setup()` without explicitly closing
