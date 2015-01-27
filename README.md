@@ -85,7 +85,7 @@ from Python's standard library.
 
 **Not using 'Easier to ask for forgiveness than permission'**:
 Even with the above use of `isinstance` and other type checking it's possible that
-someone else may wish to use your code with objects that they have developed.
+someone else wishes to use your code with objects that they have developed.
 These may not inherit from the base class that you're checking for and, as such,
 it can be better to simply assume that certain methods or attributes will be available:
 
@@ -98,11 +98,13 @@ This allows anyone reading your code to construct an `obj` that has the method `
 return the desired value for `result`. If this method is not available then an `AttributeError`
 will be raised (which the rest of your code needs to adapt to).
 In Python this approach of assuming things and catching an exception in case it didn't work
-out is called 'Easier to ask for forgiveness than permission' (EAFP). At the other end we have
-'Look before you leap' (LBYP) which would use various checks to prevent bad things from
-happening (i.e., only allow objects for which you know it'll work to pass through). This
-coding style can make your code easier to read and more flexible in case you wish to pass
-in another object.
+out is called 'Easier to ask for forgiveness than permission' (EAFP). This coding style can make
+your code easier to read and more flexible in case you wish to pass in another object.
+
+At the other end we have the 'Look before you leap' (LBYP) approach which would use various checks to
+prevent bad things from happening (i.e., only allow objects for which you know it'll work to
+pass through). This is good at times but it can also be too restrictive when only a limited number
+of objects are accepted / considered valid.
 
 **Decorating a function without preserving details**:
 If you've used a decorator to change the behaviour of a function, it's possible
