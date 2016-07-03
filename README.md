@@ -94,7 +94,7 @@ it can be better to simply assume that certain methods or attributes will be ava
     except AttributeError:
         result = None
 
-This allows anyone reading your code to construct an `obj` that has the method `foorbar` and
+This allows anyone reading your code to construct an `obj` that has the method `foobar` and
 return the desired value for `result`. If this method is not available then an `AttributeError`
 will be raised (which the rest of your code needs to adapt to).
 In Python this approach of assuming things and catching an exception in case it didn't work
